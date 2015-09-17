@@ -1,0 +1,79 @@
+{
+  "name": "time",
+  "version": "0.0.1",
+  "description": "GraphQL",
+  "contributors": [
+    "Nik Graf <nik@nikgraf.com>"
+  ],
+  "keywords": [
+    "graphql"
+  ],
+  "scripts": {
+    "start": "npm run start:server-webpack & npm run start:server",
+    "start:server": "NODE_ENV=development nodemon --exec babel-node ./server/server.js",
+    "start:server-webpack": "BABEL_ENV=development-client NODE_ENV=development babel-node ./server/server-webpack.js",
+    "update-schema": "babel-node ./lib/graphql-update-schema/updateSchema.js",
+    "build": "NODE_ENV=production webpack --progress --color -p --config ./server/webpack.prod.config.js",
+    "test": "mocha test --recursive --require ./test/test_helper.js --compilers js:babel/register",
+    "test:watch": "npm run test -- --watch",
+    "test:coverage": "istanbul cover --report=html _mocha -- test --recursive --require ./test/test_helper.js --compilers js:babel/register",
+    "test:coverage:open": "npm run test:coverage && open ./coverage/index.html",
+    "lint": "npm run lint:eslint && npm run lint:jscs && npm run lint:flow",
+    "lint:flow": "flow",
+    "lint:eslint": "eslint ./",
+    "lint:jscs": "jscs ./"
+  },
+  "dependencies": {
+    "exenv": "^1.2.0",
+    "express": "^4.13.3",
+    "express-graphql": "^0.4.0",
+    "graphql": "^0.4.7",
+    "history": "^1.12.2",
+    "immutable": "^3.7.5",
+    "is-promise": "^2.1.0",
+    "isomorphic-fetch": "^2.1.1",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "react-redux": "^3.1.0",
+    "react-router": "^1.0.0-rc1",
+    "redux": "^3.0.2",
+    "redux-immutablejs": "0.0.6",
+    "redux-thunk": "^1.0.0",
+    "redux-universal": "0.0.2",
+    "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.25",
+    "babel-eslint": "^4.1.3",
+    "babel-loader": "^5.3.2",
+    "babel-plugin-react-transform": "^1.1.1",
+    "babel-runtime": "^5.8.25",
+    "chai": "^3.3.0",
+    "chai-immutable": "^1.3.0",
+    "eslint": "^1.6.0",
+    "eslint-config-airbnb": "0.1.0",
+    "eslint-plugin-react": "^3.5.1",
+    "istanbul": "^0.3.22",
+    "jscs": "^2.2.1",
+    "mocha": "^2.3.3",
+    "nodemon": "^1.7.1",
+    "react-addons-test-utils": "^0.14.0",
+    "react-transform-catch-errors": "^1.0.0",
+    "react-transform-hmr": "^1.0.1",
+    "redbox-react": "^1.1.1",
+    "redux-devtools": "git://github.com/nikgraf/redux-devtools.git#f95f5a9",
+    "redux-logger": "^2.0.3",
+    "request": "^2.64.0",
+    "sinon": "^1.17.1",
+    "sinon-chai": "^2.8.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-middleware": "^1.2.0",
+    "webpack-dev-server": "^1.12.0",
+    "webpack-hot-middleware": "^2.4.1"
+  },
+  "engine-strict": true,
+  "engines": {
+    "node": ">=4.0.0 <5.0.0"
+  }
+}
