@@ -4,27 +4,21 @@ import AddMember from '../components/AddMember';
 import Member from '../components/Member';
 import { addMember, fetchMembers } from '../actions/MemberActions';
 
-const UserInfoA = () =>
+const UserInfo = () =>
   <div>
     <img src="https://avatars1.githubusercontent.com/u/223045?v=3&s=50" /> Nik
   </div>
 ;
 
-const UserInfoB = () =>
-  <div>
-    <img src="https://avatars1.githubusercontent.com/u/223045?v=3&s=50" /> Niko
-  </div>
-;
-
 const HeaderA = () =>
   <div>
-    Search Header A <UserInfoA />
+    Search Header A <UserInfo />
   </div>
 ;
 
 const HeaderB = () =>
   <div>
-    Search Header B <UserInfoB />
+    Search Header B <UserInfo />
   </div>
 ;
 
